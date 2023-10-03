@@ -10,6 +10,8 @@ function Home()
     const [name,setName]=useState('');
     const [email, setEmail] = useState('');
     const [mobile, setMobile] = useState('');
+    const [editIndex,setEditIndex]=useState(-1);
+    const [isEditMode,setIsEditMode]=useState(false);
 
 
     const [contacts,setcontacts] =useState([
@@ -100,6 +102,29 @@ function Home()
         setName(contactData.name);
         setEmail(contactData.email);
         setMobile(contactData.mobile);
+        setEditIndex(index);
+        setIsEditMode(true);
+    }
+
+    const editContact = ()=>
+    {
+        const obj =
+        {
+            name:name,
+            email:email,
+            mobile:mobile
+        }
+        contacts[editIndex]=obj;
+
+        setcontacts([...contacts]);
+        saveToLoacalStorage(contacts);
+
+        showToast('contact Edited Succesfully','success',3000);
+
+        setName('');
+        setEmail('');
+        setMobile('');
+        setIsEditMode(false);
     }
 
     useEffect(()=>
@@ -138,7 +163,11 @@ function Home()
                 </div>
 
                 <div className="add-contacts-container">
-                    <h2 className="sub-heading">Add Contact</h2>
+                    <h2 className="sub-heading">
+                        {
+                            isEditMode ? 'Edit Contact':'Add Contact'
+                        }- {editIndex}
+                    </h2>
                        
                        <form>
                       
@@ -178,9 +207,14 @@ function Home()
                             <button
                              type="button" 
                               className="btn-add-contact"
-                              onClick={addContact}
+                              onClick={()=>
+                            {
+                                isEditMode ? editContact():addContact()
+                            }}
                               >
-                               Add Contact
+                               {
+                                isEditMode ? 'Edit Contact':'Add Contact'
+                               }
                             </button>
                        </form>
 
