@@ -1,6 +1,6 @@
 import React from "react";
 import './ContactCard.css';
-function ContactCard({name,mobile,email,deleteContact})
+function ContactCard({name,mobile,email,deleteContact,enableEditMode,index})
 {
     return(
         <div className='contact-card'>
@@ -15,7 +15,13 @@ function ContactCard({name,mobile,email,deleteContact})
         }
        }>🗑️</span>
 
-       <span className="icon-edit-contact"> 🧹</span>
+        <span className="icon-edit-contact"
+            onClick={()=>{
+                enableEditMode(index)
+            }
+        }>🖋️</span>
+
+       
 
     </div>
 

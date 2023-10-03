@@ -94,8 +94,18 @@ function Home()
         }
     }
 
+    const enableEditMode = (index)=>
+    {
+        const contactData = contacts[index];
+        setName(contactData.name);
+        setEmail(contactData.email);
+        setMobile(contactData.mobile);
+    }
+
     useEffect(()=>
-    {},[])
+    {
+        loadFromLocalStorage();
+    },[])
 
     return(
         <div>
@@ -118,7 +128,9 @@ function Home()
                            name={contact.name}
                            mobile={contact.mobile}
                            email={contact.email}
-                           deleteContact={deleteContact}/>
+                           deleteContact={deleteContact}
+                           enableEditMode={enableEditMode}
+                           index={index}/>
                            
                         }
                         )
