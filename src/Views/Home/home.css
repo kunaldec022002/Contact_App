@@ -1,17 +1,15 @@
 .app-title
 {
 text-align: center;
-color: #e65c00;
+color:#000000;
 font-size: 50px;
 
 }
 
 body
 {
-    background-color: burlywood;
+    background:linear-gradient(#00bfff,#00ffbf)
 }
-
-
 
 
 .app-body
@@ -44,10 +42,16 @@ body
     margin: 30px auto;
     padding: 10px 30px;
     background-color: #e65c00;
-    color: #fff;
+    color: burlywood;
     border-radius: 20px;
     border: none;
     cursor: pointer;
+}
+
+.btn-add-contact:hover
+{
+    background-color:chocolate;
+    color: black;
 }
 
 

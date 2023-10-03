@@ -5,8 +5,6 @@ import "./home.css"
 
 function Home()
 {
-
-    
     const [name,setName]=useState('');
     const [email, setEmail] = useState('');
     const [mobile, setMobile] = useState('');
@@ -20,9 +18,6 @@ function Home()
             mobile:'8177907027',
             email:'Kunalingale72@gmail.com'
         },
-
-       
-
     ]);
 
     const addContact =()=>
@@ -77,7 +72,6 @@ function Home()
         saveToLoacalStorage(contacts);
 
         setcontacts([...contacts])
-
         showToast("Contact Delete Successfully...", 'success',3000);
     }
 
@@ -88,7 +82,7 @@ function Home()
 
     const loadFromLocalStorage = ()=>
     {
-        const contactData = JSON.parse(localStorage.getItem('contact'));
+        const contactData = JSON.parse(localStorage.getItem('contacts'));
 
         if(contactData)
         {
@@ -115,7 +109,6 @@ function Home()
             mobile:mobile
         }
         contacts[editIndex]=obj;
-
         setcontacts([...contacts]);
         saveToLoacalStorage(contacts);
 
@@ -190,7 +183,6 @@ function Home()
                             setEmail(e.target.value);
                           }}
                           value={email}
-
                           />
 
                         <input

@@ -21,8 +21,6 @@ function ContactCard({name,mobile,email,deleteContact,enableEditMode,index})
             }
         }>🖋️</span>
 
-       
-
     </div>
 
     )
