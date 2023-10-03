@@ -15,7 +15,7 @@ function ContactCard({name,mobile,email,deleteContact})
         }
        }>🗑️</span>
 
-       <span></span>
+       <span className="icon-edit-contact"> 🧹</span>
 
     </div>
 
