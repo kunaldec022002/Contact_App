@@ -159,7 +159,7 @@ function Home()
                     <h2 className="sub-heading">
                         {
                             isEditMode ? 'Edit Contact':'Add Contact'
-                        }- {editIndex}
+                        } 
                     </h2>
                        
                        <form>
