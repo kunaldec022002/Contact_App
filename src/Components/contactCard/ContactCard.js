@@ -1,5 +1,7 @@
 import React from "react";
 import './ContactCard.css';
+import dltIcon from './bin.png';
+import editIcon from './icons8-edit-48.png';
 function ContactCard({name,mobile,email,deleteContact,enableEditMode,index})
 {
     return(
@@ -13,13 +15,13 @@ function ContactCard({name,mobile,email,deleteContact,enableEditMode,index})
         onClick={()=>{
             deleteContact(mobile)
         }
-       }>🗑️</span>
+       }><img src={dltIcon} className="dlt-icon"/> </span>
 
         <span className="icon-edit-contact"
             onClick={()=>{
                 enableEditMode(index)
             }
-        }>🖋️</span>
+        }><img  src={editIcon} className="edit-icon"/></span>
 
     </div>
 
